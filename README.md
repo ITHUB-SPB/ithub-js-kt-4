@@ -16,88 +16,7 @@
 
 Для проверки на ошибки линтером используйте `npm run lint`.
 
-## Задания (Вариант I)
-
-#### Задача I.1
-
-Напишите функцию `getSumOfValues(prices)`, которая в качестве аргумента принимает объект с ценами и возвращает сумму его значений, не модифицируя его. 
-
-```js
-const pricesObject = {
-    price1: 100, 
-    price2: 150, 
-    price3: 200, 
-    price4: 100,
-}
-
-console.log(getSumOfValues(pricesObject))  // 550
-```
-
-#### Задача I.2
-
-Напишите функцию `generateArray(initialArray)`. Функция получает массив и должна модифицировать его таким образом, чтобы все объекты трансформировались в массивы со значениями свойств. Необходимо изменить текущий массив и вернуть его. Для проверки на объект можно использовать отрицание проверки `Array.isArray`.
-
-```js
-const data = [ [ 1 ], { id: 40 }, [ 100 ], [ 300 ], { part: 10 } ]
-
-console.log(generateArray(data)) // [ [ 1 ], [ 40 ], [ 100 ], [ 300 ], [ 10 ] ]
-console.log(data) // [ [ 1 ], [ 40 ], [ 100 ], [ 300 ], [ 10 ] ]
-```
-
-#### Задача I.3
-
-Напишите функцию `splitName(fullName)`, принимающую на вход полное имя и возвращающую объект по образцу, а также функцию `toSplittedNames(namesArray)`, принимающую на вход массив полных имен и выполняющую на них трансформацию функцией `splitName`.
-
-```js
-const nameExample = "John Al"
-const names = [
-    'Steven King',
-    'Oliver',
-    'Persius Master',
-]
-
-console.log(splitName(nameExample)) // { firstName: "John", lastName: "Al" }
-console.log(toSplittedNames(names)) // [ { firstName: "Steven", lastName: "King" }, { firstName: "Oliver" }, { firstName: "Persius", lastName: "Master" } ]
-
-```
-
-#### Задача II.1
-
-Напишите функцию `extractValues(objects)`, которая получает в качестве аргумента массив объектов. Необходимо вернуть новый массив, содержащий только значения свойств. Исходный массив не модифицировать.
-
-```js
-const data = [ 
-    {id: 1, name: 'apple'}, 
-    {id: 2, name: 'qiwi'}, 
-    {id: 3, name: 'lemon'} 
-]
-
-console.log(extractValues(data)) // [ [ 1, "apple" ], [ 2, "qiwi" ], [ 3, "lemon" ] ]
-console.log(data) //  [ { id: 1, name: "apple" }, { id: 2, name: "qiwi" }, { id: 3, name: "lemon" } ]
-```
-
-#### Задача II.2
-
-Напишите функцию `withMask(cards)`, принимающую на вход массив строк, описывающих номера банковских карт, и возвращающую массив модифицированных строк по примеру.
-
-```js
-const cards = [    
-    '4000 0012 0056 9499', 
-    '4000 0013 5456 7379', 
-    '4000 0014 1456 9869'
-]
-
-console.log(withMask(cards)) // [ '4000 **** **** 9499', '4000 **** **** 7379', '4000 **** **** 9869' ]
-```
-
-#### Задача II.3
-
-Напишите функцию `joinObjects()`, принимающую на вход неопределенное количество объектов и возвращающую единый объект по примеру.
-
-```js
-console.log(joinObjects({ id: 1 }, { status: 'draft', created: "2025-05-05" })) // { id: 1, status: "draft", created: "2025-05-05" }
-console.log(joinObjects({ id: 1, status: 'draft' }, { status: 'approved' })) // { id: 1, status: "approved" }
-```
+## Задания (Вариант III)
 
 #### Задача III.1
 
@@ -137,7 +56,6 @@ const prices = [
 console.log(countPrices(prices, "RUB")) // 2
 console.log(countPrices(prices, "USD")) // 3
 ```
-
 
 ## Критерии оценивания
 
