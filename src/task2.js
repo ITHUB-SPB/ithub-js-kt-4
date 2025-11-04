@@ -1,11 +1,17 @@
 /**
- * @param {string[]} values - Массив строк
- * @returns {number} Сумма по численным данным
+ * @param {Object} object - Проверяемый объект
+ * @param {String[]} key - Проверяемый ключ
+
+ * @returns {Boolean}
  * 
- * @description Подсчет суммы элементов массива, 
- * корректно переводимых из строки в численный вид.
+ * @description Функция принимает на вход объект и название ключа,
+ * проверяет наличие такого ключа в объекте и возвращает логический ответ
+ * 
+ * @example
+ * console.log(сheckObject({ id: 1, particle: 10 }, "particle"))  // true
+ * console.log(сheckObject({ id: 2: name: "tag" }), "tag")  // false
  */
-export function calculateSum(values) {
+export function сheckObject(object, key) {
 
   return 0
 }

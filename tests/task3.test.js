@@ -1,5 +1,19 @@
 import { test, expect, vi } from "vitest";
-import { reverseArray } from "../src/task3";
+import { countPrices } from "../src/task3";
+
+
+// const prices = [
+//   'Цена товара - 1200$',
+//   'Цена не определена',
+//   '9999 ₽',
+//   'Ценовая категория - больше 300$',
+//   'Цена за услугу 500',
+//   '150$',
+//   'Оптовая цена - 201 ₽"
+// ]
+
+// console.log(countPrices(prices, "RUB")) // 2
+// console.log(countPrices(prices, "USD")) // 3
 
 
 test("[1] выводит развернутый массив в консоль", ({ annotate }) => {
@@ -12,7 +26,7 @@ test("[1] выводит развернутый массив в консоль",
 
   expect(spy).toHaveBeenCalledOnce()
   expect(spy).toHaveBeenCalledWith([3, 2, 1])
-  
+
   vi.restoreAllMocks()
 });
 

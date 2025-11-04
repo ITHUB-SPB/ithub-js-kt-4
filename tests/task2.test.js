@@ -1,5 +1,5 @@
 import { describe, test, expect, assert } from "vitest";
-import { calculateSum } from "../src/task2";
+import { сheckObject } from "../src/task2";
 
 describe("обработка особых случаев", () => {
   test("[0.25] отсутствие данных", ({ annotate }) => {

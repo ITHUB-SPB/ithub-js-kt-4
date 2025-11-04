@@ -1,9 +1,25 @@
 /**
- * @param {any[]} initialArray - Исходный массив
- * @returns {undefined} 
+ * @param {String[]} data - Массив строк
+ * @param {"RUB" | "USD"} currency - Валюта
+
+ * @returns {number} 
  * 
- * @description Разворот массива на месте с выводом в консоль
+ * @throws Выбрасывает исключение, если валюта не задана
+ * 
+ * @description Функция принимает на вход массив строк, потенциально
+ * относящихся к цене или стоимости, а также валюту (RUB или USD), и
+ * возвращает количество строк, которые содержат символы "$" или "₽" 
+ * (согласно выбранной валюте) с численным значением перед ним.
+ * 
+ * @example
+ * countPrices([
+ *   'Цена товара - 1200$',
+ *   'Цена не определена',
+ *   '9999 ₽',
+ *   '150$',
+ * ], 'USD') // 2
+ *  
  */
-export function reverseArray(initialArray) {
+export function countPrices(data, currency) {
     return
 }
