@@ -14,5 +14,10 @@
  * console.log(data) // [ [1], [40], [100], [10] ]
  */
 export function generateArray(initialArray) {
-    return 0
+    initialArray.forEach((value, index, array) => {
+        if (!Array.isArray(value)) {
+            array[index] = Object.values(value)
+        }
+    })
+    return initialArray
 }
