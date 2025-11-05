@@ -1,17 +1,18 @@
 /**
  * @param {Object} object - Проверяемый объект
- * @param {String[]} key - Проверяемый ключ
+ * @param {String[]} keys - Проверяемые ключи
 
- * @returns {Boolean}
+ * @returns {Object<string, boolean>}
  * 
- * @description Функция принимает на вход объект и название ключа,
- * проверяет наличие такого ключа в объекте и возвращает логический ответ
+ * @throws Выбрасывает исключение на пустом массиве ключей
+ * 
+ * @description Функция принимает на вход объект и название ключей
+ * и возвращает объект с информацией о наличии каждого из них
  * 
  * @example
- * console.log(сheckObject({ id: 1, particle: 10 }, "particle"))  // true
- * console.log(сheckObject({ id: 2: name: "tag" }), "tag")  // false
+ * сheckObject({ id: 1, particle: 10 }, ["particle", "tag"])  // { particle: true, tag: false }
  */
-export function сheckObject(object, key) {
+export function checkObject(object, keys) {
 
   return 0
 }

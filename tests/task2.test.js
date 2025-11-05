@@ -1,36 +1,51 @@
 import { describe, test, expect, assert } from "vitest";
-import { сheckObject } from "../src/task2";
+import { checkObject } from "../src/task2";
 
-describe("обработка особых случаев", () => {
-  test("[0.25] отсутствие данных", ({ annotate }) => {
-    annotate(0.25);
+describe("возвращает объект с информацией о наличии ключей", () => {
+  test("[1] работает на базовых случаях", ({ annotate }) => {
+    annotate(1);
 
-    expect(() => calculateSum([])).toThrowError(
-      "Передан пустой массив"
-    );
+    const inputObject = { id: 1, status: "draft" }
+    const inputKeys = ["status", "id", "createdAt"]
+
+    const expected = { status: true, id: true, createdAt: false }
+
+    assert.deepEqual(checkObject(inputObject, inputKeys), expected)
   });
 
-  test("[0.5] отсутствие корректных данных", ({ annotate }) => {
+  test("[0.5] корректно обрабатывает nullable-значения", ({ annotate }) => {
     annotate(0.5);
 
-    expect(() => calculateSum(['abc5', '5g'])).toThrowError(
-      "Отсутствуют численные данные"
-    );
+    const inputObject = { value: undefined, author: null }
+    const inputKeys = ["value", "author", "createdAt"]
+
+    const expected = { value: true, author: true, createdAt: false }
+
+    assert.deepEqual(checkObject(inputObject, inputKeys), expected)
   });
-});
 
-test("[0.75] работает на базовых случаях", ({ annotate }) => {
-  annotate(0.75);
+  test("[0.5] не модифицирует исходные данные", ({ annotate }) => {
+    annotate(0.5);
 
-  expect(calculateSum(['10.5', 'Строка', '5g', '15', '05'])).toBe(30.5)
-});
+    const inputObject = { id: 1 }
+    const inputKeys = ["id"]
 
-test("[0.5] не модифицирует массив", ({ annotate }) => {
-  annotate(0.5);
+    checkObject(inputObject, inputKeys)
+    assert.deepEqual(inputObject, { id: 1 })
+    assert.deepEqual(inputKeys, ["id"])
+  });
+})
 
-  const values = ['10.5', 'Строка', '5g', '15', '05']
-  const expected = [...values]
+describe("обработка особых случаев", () => {
+  test("[0.5] пустой массив ключей", ({ annotate }) => {
+    annotate(0.5);
 
-  calculateSum(values)
-  assert.deepEqual(values, expected)
+    expect(() => checkObject({ id: 1 }, [])).toThrowError("Ключи не заданы")
+  });
+
+  test("[0.5] заданы дублирующие ключи", ({ annotate }) => {
+    annotate(0.5);
+
+    assert.deepEqual(checkObject({ id: 1 }, ["id", "id"]), { id: true })
+  });
 });

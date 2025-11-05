@@ -1,45 +1,75 @@
-import { test, expect, vi } from "vitest";
+import { test, expect, describe, assert } from "vitest";
 import { countPrices } from "../src/task3";
 
+describe("возвращает количество интересующих строк", () => {
+  test("[0.75] обрабатывает рубли", ({ annotate }) => {
+    annotate(0.5);
 
-// const prices = [
-//   'Цена товара - 1200$',
-//   'Цена не определена',
-//   '9999 ₽',
-//   'Ценовая категория - больше 300$',
-//   'Цена за услугу 500',
-//   '150$',
-//   'Оптовая цена - 201 ₽"
-// ]
+    const prices = [
+      'Цена товара - 1200$',
+      'Цена не определена',
+      '9999 ₽',
+      'Ценовая категория - больше 300$',
+      'Цена за услугу 500',
+      '150$',
+      'Оптовая цена - 201 ₽'
+    ]
 
-// console.log(countPrices(prices, "RUB")) // 2
-// console.log(countPrices(prices, "USD")) // 3
+    assert.deepEqual(countPrices(prices, "RUB"), { RUB: 2 })
+  });
 
+  test("[0.75] обрабатывает доллары", ({ annotate }) => {
+    annotate(0.5);
 
-test("[1] выводит развернутый массив в консоль", ({ annotate }) => {
-  annotate(1);
+    const prices = [
+      'Цена товара - 1200$',
+      'Цена не определена',
+      '9999 ₽',
+      'Ценовая категория - больше 300$',
+      'Цена за услугу 500',
+      '150$',
+      'Оптовая цена - 201 ₽'
+    ]
 
-  const spy = vi.spyOn(console, 'log')
+    assert.deepEqual(countPrices(prices, "USD"), { USD: 3 })
+  });
 
-  const values = [1, 2, 3]
-  reverseArray(values)
+  test("[0.5] не модифицирует исходные данные", ({ annotate }) => {
+    annotate(0.5);
 
-  expect(spy).toHaveBeenCalledOnce()
-  expect(spy).toHaveBeenCalledWith([3, 2, 1])
+    const prices = [
+      'Цена товара - 1200$',
+      'Цена не определена',
+      '9999 ₽',
+      'Ценовая категория - больше 300$',
+      'Цена за услугу 500',
+      '150$',
+      'Оптовая цена - 201 ₽'
+    ]
 
-  vi.restoreAllMocks()
-});
+    const expected = [...prices]
 
-test("[0.75] модифицирует массив на месте", ({ annotate }) => {
-  annotate(0.75);
+    countPrices(prices, "USD")
+    countPrices(prices, "RUB")
 
-  const spy = vi.spyOn(console, 'log')
+    assert.deepEqual(prices, expected)
+  });
+})
 
-  const values = [1, 2, 3]
-  reverseArray(values)
+describe("обработка особых случаев", () => {
+  test("[0.5] валюта не задана", ({ annotate }) => {
+    annotate(0.5);
 
-  console.log(values)
-  expect(spy).toHaveBeenLastCalledWith([3, 2, 1])
+    expect(() => countPrices(["100$"])).toThrowError(
+      "Валюта не задана"
+    );
+  });
 
-  vi.restoreAllMocks()
+  test("[0.5] валюта задана некорректно", ({ annotate }) => {
+    annotate(0.5);
+
+    expect(() => countPrices(["100$"], "EUR")).toThrowError(
+      "Поддерживаемые валюты: RUB, USD"
+    );
+  });
 });
