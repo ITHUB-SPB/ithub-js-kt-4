@@ -13,6 +13,5 @@
  * сheckObject({ id: 1, particle: 10 }, ["particle", "tag"])  // { particle: true, tag: false }
  */
 export function checkObject(object, keys) {
-
-  return 0
+    return 0
 }
