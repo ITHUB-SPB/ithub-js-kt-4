@@ -11,6 +11,12 @@
  * extractValues(data) // [ [ 1, "apple" ], [ 2, "qiwi" ] ]
  *
  */
-export function extractValues(objects) {
-  return ''
-}
+const data = [ {id: 1, name: 'apple'}, {id: 2, name: 'qiwi'}, {} ]
+
+// extractValues(data)
+
+console.log(Object.values(data));
+
+// export function extractValues(objects) {
+//   return 'GGWP'
+// };
