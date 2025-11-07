@@ -23,6 +23,13 @@ export function splitName(fullName) {
  * @example
  * toSplittedNames(["John Al", "Oliver"]) // [{ firstName: "John", lastName: "Al" }, { firstName: "Oliver" }]
  */
+export function splitName(fullName) {
+    const parts = fullName.trim().split(/\s+/); 
+    const firstName = parts[0];
+    const lastName = parts[1];
+    return lastName ? { firstName, lastName } : { firstName };
+}
+
 export function toSplittedNames(namesArray) {
-    return
+    return namesArray.map(name => splitName(name));
 }
