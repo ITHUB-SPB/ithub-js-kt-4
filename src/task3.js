@@ -32,7 +32,7 @@ export function countPrices(data, currency) {
     }
     const Symbol = currency === 'USD' ? '$' : '₽'
     const priceRegex = new RegExp(`\\d+(?:\\.\\d+)?\\s*\\${Symbol}`)
-    const count = data.filter((str) => {return priceRegex.test(str) }).length
+    const count = data.filter((a) => {return priceRegex.test(a) }).length
 
     result[currency] = count
     return result
