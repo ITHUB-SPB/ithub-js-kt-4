@@ -12,5 +12,11 @@
  *
  */
 export function extractValues(objects) {
-  return ''
+  const data = []
+  for (const element of objects) {
+      if(Object.keys(element).length > 0) {
+          data.push(Object.values(element))
+      }
+  }
+  console.log(data)
 }
