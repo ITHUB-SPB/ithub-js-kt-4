@@ -24,20 +24,14 @@ export function splitName(fullName) {
  * toSplittedNames(["John Al", "Oliver"]) // [{ firstName: "John", lastName: "Al" }, { firstName: "Oliver" }]
  */
 export function splitName(fullName) {
-    // Разбиваем строку по пробелам и фильтруем пустые строки
-    const names = fullName.trim().split(/\s+/).filter(name => name.length > 0);
+    const names = fullName.trim().split(' ').filter(Boolean);
     
-    // Если есть только одно слово - возвращаем только firstName
     if (names.length === 1) {
         return { firstName: names[0] };
     }
     
-    // Если два и более слов - берем первое как firstName, остальные объединяем в lastName
     return {
         firstName: names[0],
         lastName: names.slice(1).join(' ')
     };
-}
-export function toSplittedNames(namesArray) {
-    return namesArray.map(splitName);
 }

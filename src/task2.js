@@ -17,9 +17,7 @@
 
 export function generateArray(initialArray) {
     for (let i = 0; i < initialArray.length; i++) {
-        // Проверяем, является ли элемент объектом (не массивом)
         if (!Array.isArray(initialArray[i]) && typeof initialArray[i] === 'object' && initialArray[i] !== null) {
-            // Преобразуем объект в массив значений его свойств
             initialArray[i] = Object.values(initialArray[i]);
         }
     }
