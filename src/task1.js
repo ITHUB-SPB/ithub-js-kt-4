@@ -11,6 +11,11 @@
  * extractValues(data) // [ [ 1, "apple" ], [ 2, "qiwi" ] ]
  *
  */
+
 export function extractValues(objects) {
-  return ''
+    const filteredArray = objects
+        .filter((object) => Object.keys(object).length !== 0)
+        .map((object) => Object.values(object))
+
+    return filteredArray
 }

@@ -11,6 +11,17 @@
  * const secondObject = { status: 'draft', created: "2025-05-05" }
  * joinObjects(firstObject, secondObject) // { id: 1, status: "draft", created: "2025-05-05" }
  */
+
 export function joinObjects(...args) {
-    return {}
+    if (args.length === 0) {
+        throw new Error('Отсутствуют объекты для слияния')
+    }
+
+    let assignedObject = {}
+
+    for (const object of args) {
+        Object.assign(assignedObject, object)
+    }
+
+    return assignedObject
 }
