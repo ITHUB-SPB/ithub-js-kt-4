@@ -12,6 +12,24 @@
  * @example
  * сheckObject({ id: 1, particle: 10 }, ["particle", "tag"])  // { particle: true, tag: false }
  */
-export function checkObject(object, keys) {
-    return 0
+export function checkObject(object, keys) {    
+    if(keys.length === 0){
+        throw new Error("Ключи не заданы");
+    }
+    const result = {}
+    for(const i of keys){
+        let m =0;
+        for(const key of Object.keys(object)) {
+            if(key === i) {
+                m++
+            }
+        }
+        if(m>0){
+            result[i] = true
+        }
+        else{
+            result[i] = false
+        }
+    }
+    return result
 }
