@@ -18,7 +18,7 @@
  */
 
 export function withMask(cards) {
-    let maskedData = []
+    const maskedData = []
 
     for (const card of cards) {
         let splittedCard = card.split(' ')
