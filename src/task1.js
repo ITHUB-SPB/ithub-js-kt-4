@@ -16,6 +16,10 @@
 export function logString(...wordObjects) {
     // [{ word: "Hello" }, { word: "world!" }].map(object => object.word)
     // const memap = Object.values(wordObjects)
+    if(wordObjects.length === 0){
+        throw new Error("Отсутствуют объекты для вывода");
+        
+    }
 
     console.log(wordObjects.map((object) => object.word).join(' '))
 }
