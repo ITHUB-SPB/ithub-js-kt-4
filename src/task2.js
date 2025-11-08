@@ -14,5 +14,13 @@
  */
 export function checkObject(object, keys) {
 
-  return 0
+
+
+
+
+    if (keys.length === 0) {
+        throw new Error('Ключи не заданы')
+    }
+
+    return 0
 }

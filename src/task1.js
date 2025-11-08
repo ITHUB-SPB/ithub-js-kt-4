@@ -18,7 +18,7 @@ export function logString(...wordObjects) {
       throw new Error("Отсутствуют объекты для вывода")
     }
     
-    const result = wordObjects.map((str) => Object.values(str).join(' ')).join(' ')
+    const result = wordObjects.map((str) => Object.values(str)).join(' ')
 
         
     console.log(result)

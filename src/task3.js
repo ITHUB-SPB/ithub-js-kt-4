@@ -22,5 +22,23 @@
  *  
  */
 export function countPrices(data, currency) {
-    return
+    const result = {}
+
+    if (currency === undefined || currency === null) {
+        throw new Error('Валюта не задана')
+    }
+    if (currency !== 'USD' && currency !== 'RUB') {
+        throw new Error('Поддерживаемые валюты: RUB, USD')
+    }
+    const Symbol = currency === 'USD' ? '$' : '₽'
+    const priceRegex = new RegExp(
+        `\\d+(?:\\.\\d+)?\\s*\\${Symbol}`,
+        'g',
+    )
+    const count = data.filter((str) => {
+        return priceRegex.test(str)
+    }).length
+
+    result[currency] = count
+    return result
 }
