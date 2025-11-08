@@ -3,7 +3,7 @@
  *
  * @returns {number} Сумма значений объекта
  *
- * @description Функция принимает на вход объект с ценами
+ * @description Функция  принимает на вход объект с ценами
  * и возвращает сумму его значений, не модифицируя его
  *
  * @example
@@ -11,9 +11,7 @@
  * getSumOfValues(pricesObject)  // 250
  */
 export function getSumOfValues(prices) {
-    return 0
+    const Valuest = Object.values(prices)
+    let result = Valuest.reduce((sum, value) => sum + value, 0)
+    return result
 }
-
-
-
-// sdfughfgudfhged
