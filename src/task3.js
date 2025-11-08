@@ -22,5 +22,31 @@
  *  
  */
 export function countPrices(data, currency) {
-    return
+    if(!currency){
+        throw new Error("Валюта не задана");
+        
+    }
+    if((currency !== "RUB") && (currency !== "USD")){
+        throw new Error("Поддерживаемые валюты: RUB, USD");
+    }
+    const result = {}
+    let kol = 0
+
+    if (currency === 'RUB') {
+        for (const i of data) {
+            if (i.includes('₽')) {
+                kol++
+            }
+        }
+        result[currency] = kol
+    } else {
+        for (const i of data) {
+            if (i.includes('$')) {
+                kol++
+            }
+        }
+        result[currency] = kol
+    }
+
+    return result
 }
