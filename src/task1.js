@@ -12,5 +12,7 @@
  *
  */
 export function extractValues(objects) {
-  return ''
+    return objects
+        .filter((obj) => Object.keys(obj).length > 0)
+        .map((obj) => Object.values(obj))
 }
