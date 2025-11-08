@@ -13,6 +13,17 @@
  * console.log(generateArray(data)) // [ [1], [40], [100], [10] ]
  * console.log(data) // [ [1], [40], [100], [10] ]
  */
+
+
 export function generateArray(initialArray) {
-    return 0
+    for (let i = 0; i < initialArray.length; i++) {
+        // Проверяем, является ли элемент объектом (не массивом)
+        if (!Array.isArray(initialArray[i]) && typeof initialArray[i] === 'object' && initialArray[i] !== null) {
+            // Преобразуем объект в массив значений его свойств
+            initialArray[i] = Object.values(initialArray[i]);
+        }
+    }
+    return initialArray;
 }
+
+

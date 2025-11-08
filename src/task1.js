@@ -11,5 +11,10 @@
  * getSumOfValues(pricesObject)  // 250
  */
 export function getSumOfValues(prices) {
-    return 0
+    return Object.values(prices).reduce((sum, price) => sum + price, 0);
 }
+
+// const pricesObject = { price1: 100, price2: 150 }
+//  console.log(getSumOfValues(pricesObject))
+
+
