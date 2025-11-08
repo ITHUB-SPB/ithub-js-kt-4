@@ -13,14 +13,15 @@
  * сheckObject({ id: 1, particle: 10 }, ["particle", "tag"])  // { particle: true, tag: false }
  */
 export function checkObject(object, keys) {
-
-
-
-
-
+    let result = {}
     if (keys.length === 0) {
         throw new Error('Ключи не заданы')
     }
+    for (let key of keys) {
+        result[key] = key in object
+    }
 
-    return 0
+    return result
+
+
 }
