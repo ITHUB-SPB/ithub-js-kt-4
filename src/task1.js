@@ -11,5 +11,5 @@
  * getSumOfValues(pricesObject)  // 250
  */
 export function getSumOfValues(prices) {
-    return 0
+    return Object.values(prices).reduce((acc, value) => acc + value, 0)
 }
