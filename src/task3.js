@@ -21,3 +21,7 @@ export function splitName(fullName) {
         lastName: names.slice(1).join(' ')
     };
 } 
+
+export function toSplittedNames(namesArray) {
+    return namesArray.map(splitName);
+}
