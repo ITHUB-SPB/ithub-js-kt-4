@@ -10,14 +10,13 @@
  * splitName("Oliver") // { firstName: "Oliver" }
  */
 export function splitName(fullName) {
-  const partsArray = fullName.split(' ');
-  const result = { firstName: partsArray[0] };
-  if (partsArray.length > 1) {
-    result.lastName = partsArray.slice(1).join(' ');
-  }
-  return result;
+    const partsArray = fullName.split(' ')
+    const result = { firstName: partsArray[0] }
+    if (partsArray.length > 1) {
+        result.lastName = partsArray.slice(1).join(' ')
+    }
+    return result
 }
-
 
 /**
  * @param {String[]} namesArray - Массив имён
@@ -30,6 +29,5 @@ export function splitName(fullName) {
  * toSplittedNames(["John Al", "Oliver"]) // [{ firstName: "John", lastName: "Al" }, { firstName: "Oliver" }]
  */
 export function toSplittedNames(namesArray) {
-    return namesArray.map(name => splitName(name));
-
+    return namesArray.map((name) => splitName(name))
 }

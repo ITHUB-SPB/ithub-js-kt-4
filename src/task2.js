@@ -15,11 +15,9 @@
  */
 export function generateArray(initialArray) {
     for (let i = 0; i < initialArray.length; i++) {
-    if (!Array.isArray(initialArray[i])) {
-      initialArray[i] = Object.values(initialArray[i]);
+        if (!Array.isArray(initialArray[i])) {
+            initialArray[i] = Object.values(initialArray[i])
+        }
     }
-  }
-  return initialArray;
+    return initialArray
 }
-
-
