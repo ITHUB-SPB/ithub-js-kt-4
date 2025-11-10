@@ -12,5 +12,14 @@
  * joinObjects(firstObject, secondObject) // { id: 1, status: "draft", created: "2025-05-05" }
  */
 export function joinObjects(...args) {
-    return {}
+    if (args.length === 0) {
+        throw new Error('Отсутствуют объекты для слияния')
+    }
+
+    const Allobjects = {}
+
+    for (const object of args) {
+        Object.assign(Allobjects, object)// соединяет в objects
+    }
+    return Allobjects
 }

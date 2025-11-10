@@ -12,5 +12,8 @@
  *
  */
 export function extractValues(objects) {
-  return ''
+  const result = objects
+      .filter((obj) => Object.keys(obj).length > 0) // проверка на пустой массив
+      .map((obj) => Object.values(obj)) // создаем новый массив и вкладываем туда значения 
+  return result
 }

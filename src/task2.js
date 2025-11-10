@@ -17,5 +17,17 @@
  * 
  */
 export function withMask(cards) {
-    return cards
+        const maskedData = []
+    
+        for (const card of cards) {
+            let splittedCard = card.split(' ') // разделяем по пробелам
+            maskedData.push({   //push: Добавляет один или несколько элементов в конец массива
+                initial: card,
+                masked: `${splittedCard[0]} **** **** ${splittedCard[3]}`,
+            })
+        }
+    
+        return maskedData
+    
+
 }
