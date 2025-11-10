@@ -17,5 +17,19 @@
  * 
  */
 export function withMask(cards) {
-    return cards
+    return cards.map((card) => {
+        // разбивает по пробелам
+        const parts = card.split(' ');
+        
+        // берет ферст элемент и ласт
+        const firstBlock = parts[0];
+        const lastBlock = parts.pop(); // удаляем ласт массива
+        
+        // Форматируем маску
+        
+        return {
+            initial: card,
+            masked: `${firstBlock} **** **** ${lastBlock}`,
+        };
+    });
 }
