@@ -8,6 +8,7 @@
     "lint": "oxlint src --fix"
   },
   "devDependencies": {
+    "@vitest/coverage-v8": "^4.0.8",
     "oxlint": "^1.23.0",
     "prettier": "^3.6.2",
     "vitest": "^3.2.4"
