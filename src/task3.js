@@ -13,7 +13,7 @@
  */
 export function joinObjects(...args) {
     if (args.length === 0) {
-        throw new Error('Отсутствуют объекты для слияния')
+        throw new Error('Нет объектов для соединения')
     }
     // Создаем пустой объект для результата
     const result = {}
