@@ -18,13 +18,11 @@
  */
 export function withMask(cards) {
     return cards.map((card) => {
-        // Разбиваем номер карты на части по пробелам
+        // пробелы
         const parts = card.split(' ')
 
-        // Создаем маскированную версию: первая часть + **** + **** + последняя часть
         const masked = `${parts[0]} **** **** ${parts[3]}`
 
-        // Возвращаем объект с исходной и маскированной версиями
         return {
             initial: card,
             masked: masked,

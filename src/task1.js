@@ -13,6 +13,6 @@
  */
 export function extractValues(objects) {
     return objects
-        .filter((obj) => Object.keys(obj).length > 0) // Фильтруем непустые объекты
-        .map((obj) => Object.values(obj)) // Преобразуем объекты в массивы значений
+        .filter((obj) => Object.keys(obj).length > 0) 
+        .map((obj) => Object.values(obj)) 
 }
