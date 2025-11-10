@@ -12,5 +12,20 @@
  * joinObjects(firstObject, secondObject) // { id: 1, status: "draft", created: "2025-05-05" }
  */
 export function joinObjects(...args) {
-    return {}
+    if (args.length === 0) {
+        throw new Error('Отсутствуют объекты для слияния')
+    }
+    // Создаем пустой объект для результата
+    const result = {}
+
+    // Проходим по всем переданным объектам
+    for (const obj of args) {
+        // Для каждого объекта получаем все его ключи
+        for (const key in obj) {
+            // Копируем каждое свойство в результирующий объект
+            result[key] = obj[key]
+        }
+    }
+
+    return result
 }
