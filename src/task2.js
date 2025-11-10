@@ -22,7 +22,7 @@ export function withMask(cards) {
         const parts = card.split(' ')
 
         // Создаем маскированную версию: первая часть + ** + ** + последняя часть
-        const masked = `${parts[0]} ** ** ${parts[3]}`
+        const masked = `${parts[0]} **** **** ${parts[3]}`
 
         // Возвращаем объект с исходной и маскированной версиями
         return {
