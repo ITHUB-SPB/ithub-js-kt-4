@@ -16,7 +16,6 @@ export function joinObjects(...args) {
         throw new Error("Отсутствуют объекты для слияния")
     }
 
-    // TODO: Укоротить этот код как-нибудь
     const result = {}
 
     for (const obj of args) {
