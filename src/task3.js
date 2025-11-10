@@ -10,7 +10,13 @@
  * splitName("Oliver") // { firstName: "Oliver" }
  */
 export function splitName(fullName) {
-    return
+    const Name = fullName.split(' ')
+    const [firstName, lastName] = Name
+    if (lastName) {
+        return { firstName, lastName }
+    } else {
+        return { firstName }
+    }
 }
 
 /**
@@ -24,5 +30,5 @@ export function splitName(fullName) {
  * toSplittedNames(["John Al", "Oliver"]) // [{ firstName: "John", lastName: "Al" }, { firstName: "Oliver" }]
  */
 export function toSplittedNames(namesArray) {
-    return
+    return namesArray.map(splitName)
 }
