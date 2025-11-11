@@ -11,5 +11,9 @@
  * getSumOfValues(pricesObject)  // 250
  */
 export function getSumOfValues(prices) {
-    return 0
+    let sum = 0;
+    for (let key in prices){
+        sum+= prices[key]
+    }
+    return sum
 }
