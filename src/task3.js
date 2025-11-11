@@ -34,5 +34,5 @@ export function splitName(fullName) {
  * toSplittedNames(["John Al", "Oliver"]) // [{ firstName: "John", lastName: "Al" }, { firstName: "Oliver" }]
  */
 export function toSplittedNames(namesArray) {
-    return namesArray.map(name => splitName(name));
+    return
 }
