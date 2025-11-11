@@ -10,7 +10,17 @@
  * splitName("Oliver") // { firstName: "Oliver" }
  */
 export function splitName(fullName) {
-    return
+    const parts = fullName.trim().split(" ");
+
+    const result = {
+        firstName: parts[0]
+    };
+
+    if (parts.length > 1) {
+        result.lastName = parts.slice(1).join(" ");
+    }
+
+    return result;
 }
 
 /**
@@ -24,5 +34,5 @@ export function splitName(fullName) {
  * toSplittedNames(["John Al", "Oliver"]) // [{ firstName: "John", lastName: "Al" }, { firstName: "Oliver" }]
  */
 export function toSplittedNames(namesArray) {
-    return
+    return namesArray.map(name => splitName(name));
 }
