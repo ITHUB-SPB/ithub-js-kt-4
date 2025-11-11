@@ -17,5 +17,15 @@
  * 
  */
 export function withMask(cards) {
+    const newCards = []
+
+    for (const card of cards) {
+        const parts = card.split(' ')
+        newCards.push({
+            initial: card,
+            masked: `${parts[0]} **** **** ${parts[3]}`,
+        })
+    }
+    cards = newCards
     return cards
 }
