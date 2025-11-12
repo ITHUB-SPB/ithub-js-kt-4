@@ -17,5 +17,8 @@
  * 
  */
 export function withMask(cards) {
-    return cards
+  return cards.map(card => ({
+    initial: card,
+    masked: card.replace(/(\d{4}\s)\d{4}\s\d{4}/, '$1**** ****')
+  }));
 }
