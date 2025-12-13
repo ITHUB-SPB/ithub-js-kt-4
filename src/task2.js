@@ -17,5 +17,17 @@
  * 
  */
 export function withMask(cards) {
-    return cards
+    return cards.map(card => {
+        const parts = card.split(' ');
+        const maskedParts = [...parts];
+        if (maskedParts.length === 4) {
+            maskedParts[1] = '****';
+            maskedParts[2] = '****';
+        }
+        
+        return {
+            initial: card,
+            masked: maskedParts.join(' ')
+        };
+    });
 }
