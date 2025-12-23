@@ -21,6 +21,27 @@
  * ], 'USD') // { USD: 2 }
  *  
  */
-export function countPrices(data, currency) {
-    return
-}
+export function countPrices(prices, currency) {
+    // Проверяет что валюта задана
+    if (currency === undefined) {
+      throw new Error("Валюта не задана");
+    }
+    
+    // Проверяет поддержку валюты RUB/USD
+    if (!["RUB", "USD"].includes(currency)) {
+      throw new Error("Поддерживаемые валюты: RUB, USD");
+    }
+  
+    
+    const count = prices.reduce((acc, price) => {// Подсчитывает строки с символами валюты ₽ или $
+      const normalizedPrice = price.toUpperCase(); // Приводит к верхнему регистру для надежности
+      const regex = currency === "RUB" ? /₽/ : /\$/; // Если символ найден - увеличиваем счетчик
+      if (regex.test(normalizedPrice)) {
+        return acc + 1;
+      }
+      return acc; // счетчик не меняется
+    }, 0); // начальное значение 0
+    
+    // Возвращает объект
+    return { [currency]: count };
+  }

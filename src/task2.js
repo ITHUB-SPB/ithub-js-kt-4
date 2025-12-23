@@ -13,6 +13,12 @@
  * сheckObject({ id: 1, particle: 10 }, ["particle", "tag"])  // { particle: true, tag: false }
  */
 export function checkObject(object, keys) {
-
-  return 0
+  if (!Array.isArray(keys) || keys.length === 0 ) { //проверяем заданы ли ключи
+    throw new Error('Ключи не заданы')  //если нет - ошибка
+  } 
+    const bee = {}
+  for (const i of keys) { //пробегаемся по ключам
+    bee[i] = i in object // пробегаемся по индексам и передаем значение в новые объект
+  }
+  return bee
 }
